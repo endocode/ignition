@@ -18,6 +18,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/coreos/ignition/config"
 )
@@ -49,7 +50,7 @@ func (u Util) WriteFile(f *config.File) error {
 		}
 	}()
 
-	if err := ioutil.WriteFile(tmp.Name(), []byte(f.Contents), os.FileMode(f.Mode)); err != nil {
+	if err := ioutil.WriteFile(tmp.Name(), []byte(strings.Join(f.Contents, "\n")), os.FileMode(f.Mode)); err != nil {
 		return err
 	}
 

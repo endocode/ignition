@@ -24,13 +24,13 @@ type SystemdUnit struct {
 	Name     SystemdUnitName     `json:"name,omitempty"     yaml:"name"`
 	Enable   bool                `json:"enable,omitempty"   yaml:"enable"`
 	Mask     bool                `json:"mask,omitempty"     yaml:"mask"`
-	Contents string              `json:"contents,omitempty" yaml:"contents"`
+	Contents []string            `json:"contents,omitempty" yaml:"contents"`
 	DropIns  []SystemdUnitDropIn `json:"dropins,omitempty"  yaml:"dropins"`
 }
 
 type SystemdUnitDropIn struct {
 	Name     SystemdUnitDropInName `json:"name,omitempty"     yaml:"name"`
-	Contents string                `json:"contents,omitempty" yaml:"contents"`
+	Contents []string              `json:"contents,omitempty" yaml:"contents"`
 }
 
 type SystemdUnitName string
@@ -99,7 +99,7 @@ func (n SystemdUnitDropInName) assertValid() error {
 
 type NetworkdUnit struct {
 	Name     NetworkdUnitName `json:"name,omitempty"     yaml:"name"`
-	Contents string           `json:"contents,omitempty" yaml:"contents"`
+	Contents []string         `json:"contents,omitempty" yaml:"contents"`
 }
 
 type NetworkdUnitName string

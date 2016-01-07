@@ -102,7 +102,7 @@ func (s stage) createUnits(config config.Config) error {
 func (s stage) writeSystemdUnit(unit config.SystemdUnit) error {
 	return s.Logger.LogOp(func() error {
 		for _, dropin := range unit.DropIns {
-			if dropin.Contents == "" {
+			if dropin.Contents == nil {
 				continue
 			}
 
@@ -115,7 +115,7 @@ func (s stage) writeSystemdUnit(unit config.SystemdUnit) error {
 			}
 		}
 
-		if unit.Contents == "" {
+		if unit.Contents == nil {
 			return nil
 		}
 
@@ -135,7 +135,7 @@ func (s stage) writeSystemdUnit(unit config.SystemdUnit) error {
 // are empty, the unit is not created.
 func (s stage) writeNetworkdUnit(unit config.NetworkdUnit) error {
 	return s.Logger.LogOp(func() error {
-		if unit.Contents == "" {
+		if unit.Contents == nil {
 			return nil
 		}
 

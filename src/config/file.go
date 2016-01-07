@@ -28,7 +28,7 @@ type FileMode os.FileMode
 
 type File struct {
 	Path     string   `json:"path,omitempty"     yaml:"path"`
-	Contents string   `json:"contents,omitempty" yaml:"contents"`
+	Contents []string `json:"contents,omitempty" yaml:"contents"`
 	Mode     FileMode `json:"mode,omitempty"     yaml:"mode"`
 	Uid      int      `json:"uid,omitempty"      yaml:"uid"`
 	Gid      int      `json:"gid,omitempty"      yaml:"gid"`
